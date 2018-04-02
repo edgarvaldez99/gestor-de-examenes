@@ -9,6 +9,7 @@
 
   <modules>
     <module>perfiles</module>
+    <module>common</module>
   </modules>
 
   <name>gestorexamen</name>
@@ -18,12 +19,81 @@
     <!-- maven properties -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.test.skip>true</maven.test.skip>
+
     <!-- dependencies version -->
+    <gestorexamen.common.version>1.0-SNAPSHOT</gestorexamen.common.version>
+    <javaee.api.version>7.0</javaee.api.version>
+    <cdi.api.version>2.0</cdi.api.version>
+    <ejb.api.version>3.2</ejb.api.version>
+    <ws.rs.api.version>2.1</ws.rs.api.version>
+    <hibernate.version>5.2.12.Final</hibernate.version>
+    <lombok.version>1.16.18</lombok.version>
+    <swagger.jaxrs.version>1.5.17</swagger.jaxrs.version>
     <junit.version>3.8.1</junit.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+
+      <!-- proyecto con código en comun -->
+      <dependency>
+        <artifactId>common</artifactId>
+        <groupId>org.gestor.de.examen</groupId>
+        <version>${gestorexamen.common.version}</version>
+      </dependency>
+
+      <!-- java ee api -->
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>${javaee.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <version>${cdi.api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.ejb</groupId>
+        <artifactId>javax.ejb-api</artifactId>
+        <version>${ejb.api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.ws.rs</groupId>
+        <artifactId>javax.ws.rs-api</artifactId>
+        <version>${ws.rs.api.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <!-- hibernate -->
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- lombok -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <!-- swagger : Dependencia que sirve para documentar las url de los servicios -->
+      <dependency>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-jaxrs</artifactId>
+        <version>${swagger.jaxrs.version}</version>
+      </dependency>
 
       <!--Unit test-->
       <dependency>

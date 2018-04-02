@@ -9,17 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>perfiles</artifactId>
-    <packaging>war</packaging>
+    <artifactId>common</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
-
-        <!-- proyecto con código en comun -->
-        <dependency>
-            <artifactId>common</artifactId>
-            <groupId>org.gestor.de.examen</groupId>
-        </dependency>
-
         <!-- java ee api -->
         <dependency>
             <groupId>javax.enterprise</groupId>
@@ -31,12 +24,7 @@
             <artifactId>javax.ejb-api</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
+        
         <!-- hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -48,17 +36,5 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
-        </dependency>
-
     </dependencies>
-
 </project>
